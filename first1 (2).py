@@ -113,7 +113,6 @@ class FirstLevel(QMainWindow):
                 con = sqlite3.connect("results.sqlite")
                 cur = con.cursor()
                 r = cur.execute("SELECT id FROM res WHERE name = ? AND id_level = 3", (name,)).fetchall()
-                print(r)
                 if r:
                     cur.execute(""" UPDATE res SET count = ? WHERE id = ?""", (self.count3 / 2 + 1, r))
                 else:
